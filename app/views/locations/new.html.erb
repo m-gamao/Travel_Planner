@@ -2,16 +2,18 @@
 <br>
 <br>
 
-<%= form_for(@location) do |f| %>
+  Edit Location:
+
+<%= form_for (@location) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
     
-    Location Name: <%= f.text_field :name %><br><br>
-    Description:<br> 
-    <%= f.text_field :description %><br><br>
-    
-   <% end %>   
-  <%= f.submit %>
-  <% end %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.submit "Update" %>
   
+  <% end %>
   <br>
   <br>
   <br>

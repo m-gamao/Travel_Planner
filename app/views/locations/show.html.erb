@@ -1,25 +1,16 @@
-<h4> Location Added to Trip! </h4>
-<br>
-
-  Trip Name:   <%= @trip.name %><br>
-  Start Date: <%= @trip.start_date %><br>
-  End Date:   <%= @trip.end_date %>
+<h4> Location Added to Destination! </h4>
 <br>
 <br>
-Destinations:
+  Location Name:   <%= @location.name %><br>
+  Description: <%= @location.description %><br>
 
-<%= @destinations.each do |d| %>
-  <%= d.name %>
-  <%= d.description %>
-  <%=
-
-  <% end %>
+<br>
+<%= link_to "Edit Location", edit_location_path(@location) %>
+<br>
 
 
 <h5>
-  <%= link_to "Add another trip", new_trip_path(@trip) %>
-  <br>
-  <%= link_to "Edit this trip", edit_trip_path(@trip) %>
+  <%= link_to "Add a new location to this destination", new_location_path(@location) %>
   <br>
   <br>
 </h5>
