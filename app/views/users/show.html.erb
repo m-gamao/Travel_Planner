@@ -1,14 +1,36 @@
-<h2> Here is your information </h2>
+<h4>Hi, <%= current_user.email %></h4>
 
-<h4>
-  <%= @current_user.email %>
-  <br>
-  <br>
-  <%= @current_user.email %>
-  <br>
-  <br>
-  <%= @current_user.trip.end_date %>
-  <br>
-  <br>
-  <br>
-</h4>
+
+<ul>
+  <li><%= link_to "My Page", trips_path %></li>
+  <li><%= link_to "Create a trip", new_trip_path(@trip) %></li>
+  <li><%= link_to "Create a destination", destinations_path(@destination) %></li>
+</ul>
+<h5>Your Trips</h5>
+
+<% if current_user.trips.empty? %>
+  &nbsp;&nbsp;You have no trips
+<% else %>
+<ul>
+  <% current_user.trips.each do |trip| %>
+    <li><%=link_to trip.name, trip_path(trip) %></li><br>
+  <% end %>
+</ul>
+<% end %>
+<br>
+
+<h5>Your Destinations</h5>
+
+<% if current_user.destinations.empty? %>
+  &nbsp;&nbsp;You have no destinations
+<% else %>
+<ul>
+  <% current_user.destinations.each do |dest| %>
+    <li><%=link_to dest.name, destination_path(dest) %></li><br>
+  <% end %>
+</ul>
+<% end %>
+<br>
+<br>
+<br>
+<br>

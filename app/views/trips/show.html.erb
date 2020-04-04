@@ -1,25 +1,25 @@
 <h4> Here is your trip! </h4>
 <br>
-
-  Trip Name:   <%= @trip.name %><br>
-  Start Date: <%= @trip.start_date %><br>
-  End Date:   <%= @trip.end_date %>
+<div>
+  <strong>Trip Name:</strong> <%= @trip.name %><br>
+  <strong>Start Date:</strong> <%= @trip.start_date %><br>
+  <strong>End Date:</strong> <%= @trip.end_date %>
+</div>
 <br>
-<br>
-Destinations:
 
-<%= @destinations.each do |d| %>
-  <%= d.name %>
-  <%= d.location %> 
-  <%= d.description %>
-  <% end %>
+<h5>Destinations</h5>
 
-<br>  
+<% @trip.destinations.each do |d| %>
+  <strong>Name: </strong><%= d.name %><br>
+  <strong>Location:</strong><br>
+  <strong>Description:</strong><%= d.description %>
+  Note: <%= link_to 'Notes', show_note_path(@note) %>
+<% end %>
 
-<h5>
-  <%= link_to "Add another trip", new_trip_path(@trip) %>
-  <br>
-  <%= link_to "Edit this trip", edit_trip_path(@trip) %>
-  <br>
-  <br>
-</h5>
+<ul>
+  <li><%= link_to 'Add Destination', new_destination_path(@destination) %></li>
+  <li><%= link_to "Add another trip", new_trip_path(@trip) %></li>
+  <li><%= link_to "Edit this trip", edit_trip_path(@trip) %></li>
+</ul>
+
+

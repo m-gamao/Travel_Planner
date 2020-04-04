@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :trips
   resources :destinations
   resources :users
-  resources :flights
-  resources :accomodations
   resources :locations
 
                           

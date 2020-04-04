@@ -2,27 +2,14 @@
 
 <%= form_for (@trip) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br />
   
   <%= f.label :start_date %>
-  <%= f.date_field :start_date %>
+  <%= f.date_field :start_date %><br />
      
   <%= f.label :end_date %>
-  <%= f.date_field :end_date %>
-  <br>
+  <%= f.date_field :end_date %><br>
   
-  <%= fields_for @destinations do |d| %>
-    <%= d.label :name %>
-    <%= d.text_field :name %>
-
-    <%= d.label :location %>
-    <%= d.text_field :location %>
-
-    <%= d.label :description %>
-    <%= d.text_field :description %>
-  
-  <% end %>
-
   <%= f.submit "Update Trip" %>
   
 <% end %>

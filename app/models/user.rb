@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :trips
   has_many :destinations, through: :trips
+  has_many :locations, through: :destinations
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

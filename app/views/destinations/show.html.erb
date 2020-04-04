@@ -1,21 +1,14 @@
-<h4>Here is your destination:</h4>
-<br>
-<br>
-<h5>
-<em>Name:</em> <%= @destination.name %><br>
-<em>Description:</em> <%= @destination.description %>
-<br>
-<%= link_to "Add a Location", new_location_path(@location) %>
-</h5>
-<br>
-<%= link_to "Edit Destination", edit_destination_path(@destination) %>
-<br>
-<%= link_to "Add Destination", new_destination_path(@destination) %><br>
-<%= link_to "Create Trip", new_trip_path(@trip) %>
-<br>
-<br>
-<br>
-<br>
 
+<h4>Here is your destination</h4>
 
+<strong>Name:</strong> <%= @destination.name %><br>
+<strong>Description:</strong> <%= @destination.description %><br />
+<strong>Location:</strong> <%= @destination.location.name %>
+<br />
+<br />
+<ul>
+  <li><%= link_to "Edit this destination", edit_destination_path(@destination) %></li>
+  <li><%= link_to "Add Destination", new_destination_path(@destination) %></li>
+  <li><%= link_to "Back to Trip", trip_path(@destination.trip) %></li>
+</ul>
 

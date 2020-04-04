@@ -1,15 +1,23 @@
-class DestinationsController < ApplicationController
+  class DestinationsController < ApplicationController
     def new
-      @destination = Destination.new
+      if @trip = Trip.find_by(params[:trip_id])
+      @destination = @trip.destinations.build
+      @note = Note.new
+      end
     end
-  
+
     def index
       @destinations = Destination.all
     end
  
     def create
-      @destination = Destination.create(destination_params.merge(user_id: current_user.id))
+      @trip = Trip.find_by(params[:trip_id])
+      render :new if @trip.nil?
+    
+      @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
+      @destination.create_note({name: params[:destination][:note]})
       if @destination.save
+
       redirect_to destination_path(@destination)
       else
         render :new    
@@ -37,6 +45,6 @@ class DestinationsController < ApplicationController
     end
   
     def destination_params
-      params.require(:destination).permit(:name, :location, :description, :user_id) 
+      params.require(:destination).permit(:name, :location, :description, :user_id, :trip_id) 
     end
   end
