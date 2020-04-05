@@ -7,8 +7,15 @@ Rails.application.routes.draw do
   resources :trips
   resources :destinations
   resources :users
-  resources :locations
+  resources :notes
 
+  resources :trips do
+    resources :destinations
+  end
+  
+  resources :destinations do
+    resources :notes 
+  end
                           
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

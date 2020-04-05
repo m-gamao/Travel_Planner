@@ -1,9 +1,9 @@
   class DestinationsController < ApplicationController
     def new
-      if @trip = Trip.find_by(params[:trip_id])
+      @trip = Trip.find_by(params[:trip_id])
       @destination = @trip.destinations.build
       @note = Note.new
-      end
+      
     end
 
     def index
@@ -15,7 +15,7 @@
       render :new if @trip.nil?
     
       @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
-      @destination.create_note({name: params[:destination][:note]})
+      @destination.create_note({content: params[:destination][:note]})
       if @destination.save
 
       redirect_to destination_path(@destination)
@@ -48,3 +48,5 @@
       params.require(:destination).permit(:name, :location, :description, :user_id, :trip_id) 
     end
   end
+
+

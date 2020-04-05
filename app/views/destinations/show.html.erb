@@ -1,9 +1,9 @@
-
-<h4>Here is your destination</h4>
-
+<br>
+<h4>Here is your destination:</h4>
+<br>
 <strong>Name:</strong> <%= @destination.name %><br>
 <strong>Description:</strong> <%= @destination.description %><br />
-<strong>Location:</strong> <%= @destination.location.name %>
+<strong>Location:</strong> <%= @destination.location %>
 <br />
 <br />
 <ul>
@@ -11,4 +11,5 @@
   <li><%= link_to "Add Destination", new_destination_path(@destination) %></li>
   <li><%= link_to "Back to Trip", trip_path(@destination.trip) %></li>
 </ul>
-
+<br>
+<br>

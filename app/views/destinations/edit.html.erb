@@ -1,15 +1,23 @@
-Edit a Destination:
-
+<br>
+<br>
+<strong>Edit a Destination:</strong>
+<br>
+<br>
 <%= form_for (@destination) do |f| %>
-  <%= f.label :name %>
+  <strong><%= f.label :name %></strong>
   <%= f.text_field :name %>
     
-  <%= f.label :location %>
+  <strong><%= f.label :location %></strong>
   <%= f.text_field :location %>
      
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <strong><%= f.label :description %></strong>
+  <%= f.text_field :description %><br>
+
+<br>
     
-  <%= f.submit "Update Destination" %>
+  <%= f.submit "Update" %>
   
 <% end %>
+
+<br>
+<br>
