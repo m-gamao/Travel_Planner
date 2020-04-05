@@ -1,9 +1,8 @@
   class DestinationsController < ApplicationController
     def new
-      @trip = Trip.find_by(params[:trip_id])
+      @trip = Trip.new
       @destination = @trip.destinations.build
-      @note = Note.new
-      
+      @note = @destination.notes.build
     end
 
     def index
@@ -15,7 +14,6 @@
       render :new if @trip.nil?
     
       @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
-      @destination.create_note({content: params[:destination][:note]})
       if @destination.save
 
       redirect_to destination_path(@destination)
@@ -33,17 +31,18 @@
       end
   
       def update
-        set_destination
+        @destination = Destination.find_by(params[:trip_id])
         @destination.update(destination_params)
-        redirect_to destination_path(@destination)    
+        redirect_to trip_destination_path(@destination)    
       end
 
-      
   def destroy
-    Destination.find_by(params[:trip_id]).destroy
-    redirect_to trip_path
-  end
-
+    @destination = Destination.find_by(params[:trip_id])
+    if @destination.present?
+      @destination.destroy
+    end
+    redirect_to root_url
+end
     private
     
   
