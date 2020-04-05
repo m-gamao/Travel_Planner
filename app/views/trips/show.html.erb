@@ -1,4 +1,7 @@
-<h4> Here is your trip! </h4>
+<br>
+<% if user_signed_in? %>
+  <h4><strong>Here is your trip, <%= current_user.email%>!</h4>
+  <% end %>
 <br>
 <div>
   <strong>Trip Name:</strong> <%= @trip.name %><br>
@@ -7,23 +10,22 @@
 </div>
 <br>
 
-<h5>Destinations</h5>
+<h5>Destinations:</h5>
 
 <% @trip.destinations.each do |d| %>
   <div>
   <strong>Name: </strong><%= d.name %><br>
   <strong>Location: </strong><%= d.location %><br>
-  <strong>Description: </strong><% d.description %><br>
-  <%= link_to 'Edit', edit_trip_destination_path(@trip)%>
-  </div>
-<br>
+  <strong>Description: </strong><%= d.description %><br>
+  <%= link_to 'Edit', edit_trip_destination_path(@trip)%><br>
+  <br>
   <% end %>
+  </div>
+ 
 
+  <li><%= link_to 'Add Destination', new_destination_path(@destination) %> 
+  <li><%= link_to "Edit this trip", edit_trip_path(@trip) %>  
 <br>
-<ul>
-  <li><%= link_to 'Add Destination', new_destination_path(@destination) %></li>
-  <li><%= link_to "Add another trip", new_trip_path(@trip) %></li>
-  <li><%= link_to "Edit this trip", edit_trip_path(@trip) %></li>
-</ul>
+  <li><%= link_to "Add a new trip", new_trip_path(@trip) %> 
 
 

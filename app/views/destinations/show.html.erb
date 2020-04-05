@@ -1,11 +1,10 @@
 <br>
-<h4>Here is your destination:</h4>
+<h5>Here is your destination:</h5>
 <br>
 <strong>Name:</strong> <%= @destination.name %><br>
-<strong>Description:</strong> <%= @destination.description %><br />
-<strong>Location:</strong> <%= @destination.location %>
-<br />
-<br />
+<strong>Description:</strong> <%= @destination.description %><br>
+<strong>Location:</strong> <%= @destination.location %><br>
+<br>
 <ul>
   <li><%= link_to "Edit this destination", edit_destination_path(@destination) %></li>
   <li><%= link_to "Add Destination", new_destination_path(@destination) %></li>

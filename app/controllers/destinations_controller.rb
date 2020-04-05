@@ -25,11 +25,11 @@
     end
 
       def edit
-        set_destination
+        @destination = Destination.find_by(params[:trip_id])
       end
     
       def show
-        set_destination
+        @destination = Destination.find_by(params[:trip_id])
       end
   
       def update
@@ -38,11 +38,14 @@
         redirect_to destination_path(@destination)    
       end
 
+      
+  def destroy
+    Destination.find_by(params[:trip_id]).destroy
+    redirect_to trip_path
+  end
+
     private
     
-    def set_destination
-      @destination = Destination.find(params[:id])
-    end
   
     def destination_params
       params.require(:destination).permit(:name, :location, :description, :user_id, :trip_id) 

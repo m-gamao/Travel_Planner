@@ -22,7 +22,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find_by(params[:user_id])
   end
 
   def update

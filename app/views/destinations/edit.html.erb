@@ -14,9 +14,12 @@
   <%= f.text_field :description %><br>
 
 <br>
-    
+
   <%= f.submit "Update" %>
-  
+  <br>
+  <br>
+  <%= button_to "Delete", destination_path(@destination), method: :delete %>
+    
 <% end %>
 
 <br>
