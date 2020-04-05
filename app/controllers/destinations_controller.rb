@@ -30,10 +30,11 @@
         @destination = Destination.find_by(params[:trip_id])
       end
   
+
       def update
-        @destination = Destination.find_by(params[:trip_id])
-        @destination.update(destination_params)
-        redirect_to trip_destination_path(@destination)    
+        @destination = Destination.find(params[:id])
+        @destination.update(name: params[:destination][:name], location: params[:destination][:location], description: params[:destination][:description])
+        redirect_to destination_path(@destination)
       end
 
   def destroy
@@ -42,7 +43,8 @@
       @destination.destroy
     end
     redirect_to root_url
-end
+  end
+
     private
     
   
