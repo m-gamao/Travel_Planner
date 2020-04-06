@@ -11,8 +11,8 @@
  
     def create
       @trip = Trip.find_by(params[:trip_id])
-      render :new if @trip.nil?
-    
+        render :new if @trip.nil?
+ 
       @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
       if @destination.save
 
@@ -23,11 +23,11 @@
     end
 
       def edit
-        @destination = Destination.find_by(params[:trip_id])
+        @destination = Destination.find(params[:id])
       end
     
       def show
-        @destination = Destination.find_by(params[:trip_id])
+        @destination = Destination.find(params[:id])
       end
   
 
