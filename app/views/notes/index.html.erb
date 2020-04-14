@@ -1,0 +1,18 @@
+<br>
+<h5><strong>Notes for your destination:</strong></h5>
+<br>
+<ul>
+<% @notes.each do |n| %><br>
+<li><%= n.created_at.strftime('%m/%d/%Y') %>:     
+<%= n.content %><br>
+<%= link_to 'Edit', edit_note_path(n) %> &nbsp;
+<%= link_to 'Delete', destination_path(@destination), method: :delete %></li>
+<% end %>
+</ul>
+<br>
+<h6><%= link_to 'Click here for most recent notes',  destination_notes_path(@destination, last_three: true) %>  </h6>
+<br>
+<%= link_to "Go Back to My Destination", destination_path(@destination) %>
+<br>  
+<br>  
+ 

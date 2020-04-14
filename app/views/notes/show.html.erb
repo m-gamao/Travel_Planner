@@ -1,9 +1,15 @@
-<h4>Note</h4>
+<br>
+<h5> Here is the note for this destination: </h5>
 
+<%= @note.date %>
+<%= @note.content %>
+<br>
+<br>
+<br>
 <br>
 
-<%= @note.content %>
-
-
-<%= link_to 'Edit', edit_note_path(@note)%>
+<%= link_to 'Edit this note', edit_note_path(@note)%><br>
+<%= link_to 'Add a new note', new_note_path %><br>
+<br>    
+<br>
 

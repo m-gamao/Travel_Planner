@@ -1,4 +1,5 @@
-<h4>Here are all of your destinations:</h4>
+<h4>Here are all of your destinations for your
+<%= link_to @trip.name, trip_path(@trip)%> Trip:</h4>
 
 Click on a link to view:
 <br>
@@ -7,7 +8,7 @@ Click on a link to view:
 <tbody>
   <% @destinations.each do |destination| %>
     <tr>
-        <td><%= link_to "#{destination.name}", destination_path(destination) %></td> 
+        <td><%= link_to destination.name, destination_path(destination) %></td> 
         <% end %>  
     </tr> 
 
@@ -19,6 +20,6 @@ Click on a link to view:
 <br>
 <br>
 <br>
-<%= link_to "Create a new destination", new_destination_path(@destination) %>
+<%= link_to "Create a new destination", new_trip_destination_path(@trip) %>
 <br>
 <br>

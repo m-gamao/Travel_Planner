@@ -6,6 +6,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.create(trip_params.merge(user_id: current_user.id))
+    @trip.user = current_user
     if @trip.save
     redirect_to trip_path(@trip)
     else
@@ -14,7 +15,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def edit
@@ -22,7 +23,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find_by(params[:user_id])
+    set_trip
   end
 
   def update
@@ -31,6 +32,7 @@ class TripsController < ApplicationController
     redirect_to trip_path(@trip)    
   end
         
+  
 private
 
 def set_trip

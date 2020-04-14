@@ -2,8 +2,8 @@
 <h4> Create a Destination </h4>
 <h6>
 <br>
-<%= form_for (@destination) do |f| %>
-  <%= f.hidden_field :trip_id, value: @trip.id %>
+<%= form_for([@trip, @destination]) do |f| %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 

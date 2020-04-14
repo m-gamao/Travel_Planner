@@ -1,19 +1,21 @@
   class DestinationsController < ApplicationController
     def new
-      @trip = Trip.new
+      @trip = Trip.find(params[:trip_id])
       @destination = @trip.destinations.build
-      @note = @destination.notes.build
     end
 
     def index
-      @destinations = Destination.all
+      @trip = Trip.find(params[:trip_id])
+      @destinations = @trip.destinations
     end
  
     def create
-      @trip = Trip.find_by(params[:trip_id])
-        render :new if @trip.nil?
+      
+      @trip = Trip.find(params[:trip_id])
+  
  
       @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
+      
       if @destination.save
 
       redirect_to destination_path(@destination)
@@ -30,6 +32,9 @@
         @destination = Destination.find(params[:id])
       end
   
+      def search
+        @destination = Note.most_recent
+      end
 
       def update
         @destination = Destination.find(params[:id])
@@ -38,11 +43,12 @@
       end
 
   def destroy
-    @destination = Destination.find_by(params[:trip_id])
+    @destination = Destination.find(params[:id])
+    @trip = @destination.trip
     if @destination.present?
       @destination.destroy
     end
-    redirect_to root_url
+    redirect_to trip_path(@trip)
   end
 
     private
