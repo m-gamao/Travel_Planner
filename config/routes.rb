@@ -6,8 +6,7 @@
     devise_for :users, controllers: { omniauth_callbacks: 'callbacks'}
 
     root to: "home#index"
-    resources :trips
-    resources :destinations
+
     resources :users
     resources :notes
 

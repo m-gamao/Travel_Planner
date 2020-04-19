@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_action :set_note, only: [:edit, :show, :update, :destroy]
+  
   #Define the @destination in the 'new' and 'create' methods because you have to
   #pass the :destination_id / @destination.id in the view/notes/new.html.erb file.
     def new
@@ -21,8 +23,6 @@ class NotesController < ApplicationController
 
 
     def edit
-      set_note
-      
     end
         
     def index
@@ -38,17 +38,14 @@ class NotesController < ApplicationController
     end
    
     def show
-      set_note
     end
 
     def update
-      set_note
       @note.update(note_params)
         redirect_to note_path(@note)unless @note.errors.any?
     end
    
     def destroy
-      @note = Note.find(params[:id])
       if @note.present?
         @note.destroy
       end

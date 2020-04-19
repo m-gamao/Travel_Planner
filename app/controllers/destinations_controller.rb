@@ -31,10 +31,6 @@
       def show
         @destination = Destination.find(params[:id])
       end
-  
-      def search
-        @destination = Note.most_recent
-      end
 
       def update
         @destination = Destination.find(params[:id])

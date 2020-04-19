@@ -4,10 +4,10 @@ class Destination < ApplicationRecord
   has_many :notes
   accepts_nested_attributes_for :notes
 
-  def notes_attributes=(notes_attributes)
-	  Notes_attributes.each do |notes_attributes|
-	    self.notes.build(notes_attributes)
-    end    
-  end
+  # def notes_attributes=(notes_attributes)
+	#   Notes_attributes.each do |notes_attributes|
+	#     self.notes.build(notes_attributes)
+  #   end    
+  # end
 
 end

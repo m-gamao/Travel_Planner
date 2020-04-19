@@ -7,3 +7,6 @@ ____________________________________
 1. Provide an option to the user to view the last 3 notes for a
 specific destination in mind.
 2. Search for all destinations that have notes attached to them.
+
+QUERY Parameter
+Routes Paramatyer
