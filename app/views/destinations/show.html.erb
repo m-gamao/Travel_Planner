@@ -12,9 +12,11 @@
 OPTIONS:
 <ul>
   <li><%= link_to "Add a Note", new_destination_note_path(@destination) %>
-  <li><%= link_to "See Notes", destination_notes_path(@destination.id) %> 
+  <li><%= link_to "See Notes", destination_notes_path(@destination) %> 
   <li><%= link_to "Edit this Destination", edit_destination_path(@destination) %></li>
-  <li><%= link_to "Back to Trip", trip_destinations_path(@destination.trip) %></li>
+
+  <%#link to Destinations index below %>
+  <li><%= link_to "See all Destinations in this Trip", trip_destinations_path(@destination.trip) %></li>
 </ul>
 <br>
 <br>
