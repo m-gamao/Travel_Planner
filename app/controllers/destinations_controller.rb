@@ -14,11 +14,11 @@
     def create
       @trip = Trip.find(params[:trip_id])
       @destination = @trip.destinations.create(destination_params.merge(user_id: current_user.id))
-    
-      if @destination.save
-
+      if @destination.valid?
+        @destination.save
         redirect_to destination_path(@destination)
       else
+        flash[:message] = "The data you entered is not valid...Please try again."
         render :new    
       end
     end

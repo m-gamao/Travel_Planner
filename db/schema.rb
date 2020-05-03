@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_175535) do
+ActiveRecord::Schema.define(version: 2020_04_30_054759) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer "user_id"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_04_09_175535) do
     t.string "name"
     t.string "description"
     t.string "location"
+  end
+
+  create_table "destinations_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "destination_id", null: false
+    t.index ["destination_id", "user_id"], name: "index_destinations_users_on_destination_id_and_user_id"
+    t.index ["user_id", "destination_id"], name: "index_destinations_users_on_user_id_and_destination_id"
   end
 
   create_table "notes", force: :cascade do |t|

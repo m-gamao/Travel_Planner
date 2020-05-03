@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   has_many :trips
+
+  #This is my join table:
   has_many :destinations, through: :trips
 
   devise :omniauthable, :database_authenticatable, :registerable,
