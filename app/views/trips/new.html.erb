@@ -9,10 +9,12 @@
   Trip Name: <%= f.text_field :name %><br><br>
   Start Date: <%= f.date_field :start_date %>
   End Date: <%= f.date_field :end_date %><br><br>
-  <%= collection_select(:destination, Destination.all, :name, :name) %>
+  <%= f.label :choose_a_destination %>: 
+  <%= collection_select(:trip, :destination_ids, Destination.all, :id, :name) %>
+  <br>
+  <br>
   
   <%= f.submit %>
 
 <% end %>
-<br>
 <br>

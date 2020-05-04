@@ -7,6 +7,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params.merge(user_id: current_user.id))
+    byebug
     # @trip.user = current_user
     if @trip.save
     redirect_to trip_path(@trip)
@@ -23,6 +24,7 @@ class TripsController < ApplicationController
   end
 
   def show
+  
   end
 
   def update
@@ -36,8 +38,11 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+
+  #:destination_ids is plural because has_many :destinations is plural
   def trip_params
-    params.require(:trip).permit(:name, :start_date, :end_date, :user_id, destinations_attributes: [:name])
+    params.require(:trip).permit(:name, :start_date, :end_date, :user_id, :destination_ids, 
+    destinations_attributes: [:name])
   end
 
 end
