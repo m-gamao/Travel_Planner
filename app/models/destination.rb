@@ -1,17 +1,12 @@
 class Destination < ApplicationRecord
-  belongs_to :trip, optional: true
   belongs_to :user
   has_many :notes
-  has_many :users, through: :trips
+  has_many_and_belongs_to :trips, through: user
 
   accepts_nested_attributes_for :trip
-
-  #This is my join table associations
-  has_many :trips, through: destination_trip
+  accepts_nested_attributes_for :notes
 
   validates :name, presence: true
-  
-  accepts_nested_attributes_for :notes
 
   # def notes_attributes=(notes_attributes)
 	#   Notes_attributes.each do |notes_attributes|

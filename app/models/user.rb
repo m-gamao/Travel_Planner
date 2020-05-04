@@ -2,10 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  has_many :trips
-
-  #This is my join table:
-  has_many :destinations, through: :trips
+  #Join table:
+  has_many_and_belongs_to: destinations
+  has_many_and_belongs_to :trips
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

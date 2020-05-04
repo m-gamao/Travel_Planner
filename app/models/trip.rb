@@ -1,9 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :user
-
-  has_many :destinations, through: :user
+  has_many_and_belongs_to :destinations, through: :user
   has_many :notes, through: :destinations
-
+  
   accepts_nested_attributes_for :destinations
   
   validates :name, presence: true
