@@ -5,7 +5,7 @@ class User < ApplicationRecord
   #User table is the Join table:
 
   has_many :trips
-  has_many :destinations
+  has_many :destinations, through: :user_destinations
 
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
