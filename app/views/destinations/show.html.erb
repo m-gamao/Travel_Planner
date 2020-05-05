@@ -6,16 +6,14 @@
 <strong>Description:</strong> <%= @destination.description %><br>
 <br>
 <%= button_to "Delete", destination_path(@destination), method: :delete %>
-<% #Pass in the @destination to the delete method within the DestinationsController %>
 
 <br>
 OPTIONS:
 <ul>
-  <li><%= link_to "Add a Note", new_destination_note_path(@destination) %>
-  <li><%= link_to "See Notes", destination_notes_path(@destination) %> 
+  <li><%= link_to "Add a Note", new_destination_note_path(@destination) %></li>
+  <li><%= link_to "See Notes", destination_notes_path(@destination) %></li> 
   <li><%= link_to "Edit this Destination", edit_destination_path(@destination) %></li>
 
-  <%#the link to Destinations index is below %>
   <li><%= link_to "See all Destinations in this Trip", trip_destinations_path(@destination.trips) %></li>
 </ul>
 <br>
