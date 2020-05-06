@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
   belongs_to :user
-  belongs_to :trip
+
   has_many :notes
   has_many :trip_destinations
   has_many :trips, through: :trip_destinations

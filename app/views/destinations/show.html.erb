@@ -8,6 +8,17 @@
 <%= button_to "Delete", destination_path(@destination), method: :delete %>
 
 <br>
+
+<h5>Other trips where you visit this destination:</h5>
+  <ul>
+    <% @destination.trips.each do |trip| %>
+      <% if trip.user == current_user %>
+      <li><%= trip.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <br>
+
 OPTIONS:
 <ul>
   <li><%= link_to "Add a Note", new_destination_note_path(@destination) %></li>
@@ -17,4 +28,6 @@ OPTIONS:
   <li><%= link_to "See all Destinations in this Trip", trip_destinations_path(@destination.trips) %></li>
 </ul>
 <br>
+
+
 <br>

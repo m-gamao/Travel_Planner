@@ -7,7 +7,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params.merge(user_id: current_user.id))
-    byebug
+
     # @trip.user = current_user
     if @trip.save
     redirect_to trip_path(@trip)
