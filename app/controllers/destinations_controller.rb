@@ -1,7 +1,7 @@
   class DestinationsController < ApplicationController
     before_action :set_dest, only: [:edit, :show, :update, :destroy]
 
-    def new
+    def new  
       @trip = Trip.find(params[:trip_id])
       @destination = @trip.destinations.build
     end

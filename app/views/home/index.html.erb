@@ -1,12 +1,24 @@
-<h4>Plan your next adventure!</h4>
+<h3>Plan your next adventure!</h3>
 <br>
 <strong>
-<h5>
+<h4>
 <%= link_to "See my trips", trips_path %>
 <br>
 <%= link_to "Create a trip", new_trip_path(@trip) %>
 
-</h5>
+
+</strong>
+<br><br><br>
+<strong>
+</h4>
+<h5>
+<em>Fun Facts about this app:</strong></em>
+<br>
+<li>The longest destination in the database is: "<%= Destination.longest_destination.first.name %>"
+<br>
+<li>The shortest destination in the database is: "<%= Destination.shortest_destination.first.name %>"
 </strong>
 <br>
-<br>
+</h5>
+
+<br><br>
